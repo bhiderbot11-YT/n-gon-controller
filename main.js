@@ -144,11 +144,11 @@ function loop() {
         selectedColumnIndex++;
       }
 
-      if (gpInputs.includes(6) && !lastInputs.includes(6)) {
+      if (gpInputs.includes(0) && !lastInputs.includes(0)) {
         jumpCancel = true;
         (selectedElement.onclick || selectedElement.click || (() => {})).call(selectedElement);
       }
-      if (gpInputs.includes(7) && !lastInputs.includes(7)) {
+      if (gpInputs.includes(1) && !lastInputs.includes(1)) {
         crouchCancel = true;
         let cancel = document.getElementsByClassName('cancel-card')[0];
         let exit = document.getElementById('exit');
@@ -248,18 +248,18 @@ function loop() {
         document.getElementById('pause-grid-right').scroll(0, document.getElementById('pause-grid-right').scrollTop + gamepad.axes[3] * 5);
       }
 
-      if (gpInputs.includes(1) && !lastInputs.includes(1)) {
+      if (gpInputs.includes(7) && !lastInputs.includes(7)) {
         pauseEvent = new Event('keydown');
         pauseEvent.code = input.key.pause;
         window.dispatchEvent(pauseEvent);
       }
     } else {
-      if (!jumpCancel) input.up = gpInputs.includes(0);
-      if (!gpInputs.includes(0)) jumpCancel = false;
+      if (!jumpCancel) input.up = gpInputs.includes(6);
+      if (!gpInputs.includes(6)) jumpCancel = false;
       if (!crouchCancel) {
         if (m.onGround) {
           if (!crouchToggled && input.down) input.down = false;
-          if (gpInputs.includes(1) && !lastInputs.includes(1)) {
+          if (gpInputs.includes(7) && !lastInputs.includes(7)) {
             input.down = !input.down;
             crouchToggled = !crouchToggled;
           }
