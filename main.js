@@ -269,10 +269,10 @@ function loop() {
         }
       }
       if (!gpInputs.includes(1)) crouchCancel = false;
-      if (gpInputs.includes(4) && !lastInputs.includes(4)) simulation.previousGun();
-      if (gpInputs.includes(5) && !lastInputs.includes(5)) simulation.nextGun();
-      input.field = gpInputs.includes(6);
-      input.fire = gpInputs.includes(7);  
+      if (gpInputs.includes(6) && !lastInputs.includes(6)) simulation.previousGun();
+      if (gpInputs.includes(7) && !lastInputs.includes(7)) simulation.nextGun();
+      input.field = gpInputs.includes(4);
+      input.fire = gpInputs.includes(5);  
     }
     
     if (gpInputs.includes(8) && !lastInputs.includes(8)) freeLook = !freeLook;
