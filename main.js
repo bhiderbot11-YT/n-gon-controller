@@ -248,18 +248,18 @@ function loop() {
         document.getElementById('pause-grid-right').scroll(0, document.getElementById('pause-grid-right').scrollTop + gamepad.axes[3] * 5);
       }
 
-      if (gpInputs.includes(7) && !lastInputs.includes(7)) {
+      if (gpInputs.includes(4) && !lastInputs.includes(4)) {
         pauseEvent = new Event('keydown');
         pauseEvent.code = input.key.pause;
         window.dispatchEvent(pauseEvent);
       }
     } else {
-      if (!jumpCancel) input.up = gpInputs.includes(6);
-      if (!gpInputs.includes(6)) jumpCancel = false;
+      if (!jumpCancel) input.up = gpInputs.includes(5);
+      if (!gpInputs.includes(5)) jumpCancel = false;
       if (!crouchCancel) {
         if (m.onGround) {
           if (!crouchToggled && input.down) input.down = false;
-          if (gpInputs.includes(7) && !lastInputs.includes(7)) {
+          if (gpInputs.includes(4) && !lastInputs.includes(4)) {
             input.down = !input.down;
             crouchToggled = !crouchToggled;
           }
@@ -268,11 +268,11 @@ function loop() {
           input.down = gpInputs.includes(1);
         }
       }
-      if (!gpInputs.includes(7)) crouchCancel = false;
+      if (!gpInputs.includes(4)) crouchCancel = false;
       if (gpInputs.includes(0) && !lastInputs.includes(0)) simulation.previousGun();
       if (gpInputs.includes(1) && !lastInputs.includes(1)) simulation.nextGun();
-      input.field = gpInputs.includes(4);
-      input.fire = gpInputs.includes(5);  
+      input.field = gpInputs.includes(7);
+      input.fire = gpInputs.includes(6);  
     }
     
     if (gpInputs.includes(8) && !lastInputs.includes(8)) freeLook = !freeLook;
