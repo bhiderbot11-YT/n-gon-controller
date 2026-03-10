@@ -144,11 +144,11 @@ function loop() {
         selectedColumnIndex++;
       }
 
-      if (gpInputs.includes(0) && !lastInputs.includes(0)) {
+      if (gpInputs.includes(6) && !lastInputs.includes(6)) {
         jumpCancel = true;
         (selectedElement.onclick || selectedElement.click || (() => {})).call(selectedElement);
       }
-      if (gpInputs.includes(1) && !lastInputs.includes(1)) {
+      if (gpInputs.includes(7) && !lastInputs.includes(7)) {
         crouchCancel = true;
         let cancel = document.getElementsByClassName('cancel-card')[0];
         let exit = document.getElementById('exit');
@@ -268,9 +268,9 @@ function loop() {
           input.down = gpInputs.includes(1);
         }
       }
-      if (!gpInputs.includes(1)) crouchCancel = false;
-      if (gpInputs.includes(6) && !lastInputs.includes(6)) simulation.previousGun();
-      if (gpInputs.includes(7) && !lastInputs.includes(7)) simulation.nextGun();
+      if (!gpInputs.includes(7)) crouchCancel = false;
+      if (gpInputs.includes(0) && !lastInputs.includes(0)) simulation.previousGun();
+      if (gpInputs.includes(1) && !lastInputs.includes(1)) simulation.nextGun();
       input.field = gpInputs.includes(4);
       input.fire = gpInputs.includes(5);  
     }
